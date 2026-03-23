@@ -1,0 +1,7 @@
+{
+  "name": "AP Portfolio Generator",
+  "id": "ap-portfolio-generator-local",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": ["figma"]
+}
