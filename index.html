@@ -47,7 +47,7 @@
       --fg-dim:       #DAD7CC;
       --fg-muted:     rgba(236, 234, 228, 0.20);
       --border:       rgba(236, 234, 228, 0.08);
-      --pad:          60px;
+      --pad:          max(60px, calc((100vw - 1800px) / 2));
 
       --font-display: 'GT America Condensed', 'Helvetica Neue', Arial, sans-serif;
 
@@ -175,8 +175,9 @@
        PROJECT ROW
     ============================================================ */
     .proj-row {
-      display: flex;
-      align-items: flex-start;
+      display: grid;
+      grid-template-columns: 40px 1fr 1fr;
+      align-items: start;
       gap: 32px;
       padding: 48px var(--pad);
       cursor: none;
@@ -188,8 +189,7 @@
       font-size: 16px; font-weight: 500;
       text-transform: uppercase; letter-spacing: .04em;
       color: var(--fg-dim);
-      padding-top: .35em; /* baseline align with cap-height of headline */
-      flex-shrink: 0;
+      padding-top: .35em;
     }
 
     .proj-name {
@@ -199,16 +199,15 @@
       line-height: .924;
       letter-spacing: -.035em;
       text-transform: uppercase;
-      flex: 0 0 auto;
-      width: clamp(320px, 43.13vw, 621px); /* mirrors Figma 621px at 1440 */
+      min-width: 0;
     }
 
     .proj-desc {
       font-size: 16px; font-weight: 500; line-height: 1.65;
       color: rgba(255,255,255,.65);
       max-width: 530px;
-      align-self: center;
-      padding: 8px 0;
+      padding: 16px 0 8px;
+      align-self: start;
     }
 
     /* Default + per-project colors */
@@ -354,7 +353,7 @@
       }
       .proj-name {
         font-size: 90px;
-        width: clamp(280px, 43vw, 540px);
+        min-width: 0;
       }
       .about-hl {
         font-size: clamp(64px, 10vw, 110px);
@@ -393,6 +392,7 @@
 
       /* ── Project rows — stacked ── */
       .proj-row {
+        display: flex;
         flex-direction: column;
         gap: 12px;
         padding: 32px 16px;
