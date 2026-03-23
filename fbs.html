@@ -292,6 +292,7 @@
       .h-pill { padding: 12px 18px; font-size: 13px; }
       .h-back { width: 48px; height: 48px; padding: 0; }
       .h-nav-pill { gap: 18px; }
+      .h-nav-pill a[href*="works"] { display: none; }
 
       /* ── Intro ── */
       .fbs-intro { padding: 100px 16px 48px; }
@@ -329,6 +330,15 @@
         text-align: center;
       }
       .f-social { justify-content: center; gap: 24px; }
+    }
+
+    /* ============================================================
+       SMALL MOBILE  < 400px  — no text wrapping in nav pills
+    ============================================================ */
+    @media (max-width: 399px) {
+      .h-pill { padding: 10px 12px; font-size: 11px; white-space: nowrap; }
+      .h-back { width: 40px; height: 40px; }
+      .h-nav-pill { gap: 12px; }
     }
   </style>
 </head>

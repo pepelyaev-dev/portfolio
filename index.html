@@ -415,8 +415,8 @@
       .market-inner { padding: 0 16px; }
       .market-inner .proj-row { padding-left: 0; padding-right: 0; }
       .market-img {
-        height: 100vw;
-        max-height: 375px;
+        height: 78vw;
+        max-height: 292px;
       }
       .market-img img { top: -24.7vw; }
 
@@ -438,6 +438,15 @@
       }
       .f-social { justify-content: center; gap: 24px; }
       .f-copy { order: 3; }
+    }
+
+    /* ============================================================
+       SMALL MOBILE  < 400px  — no text wrapping in nav pills
+    ============================================================ */
+    @media (max-width: 399px) {
+      .h-pill { padding: 10px 12px; font-size: 11px; white-space: nowrap; }
+      .h-back { width: 40px; height: 40px; }
+      .h-nav-pill { gap: 12px; }
     }
   </style>
 </head>
