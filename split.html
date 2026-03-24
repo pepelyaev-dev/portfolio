@@ -177,9 +177,18 @@
     .split-informer {
       position: absolute;
       top: 39%;
-      left: 100px;
-      right: 100px;
+      left: 0;
+      right: 0;
       z-index: 1;
+      display: flex;
+      justify-content: center;
+      padding: 0 160px;
+    }
+    .split-informer img {
+      width: 100%;
+      max-width: 1280px;
+      display: block;
+      border-radius: 24px;
     }
     .split-informer img {
       width: 100%;
@@ -278,7 +287,7 @@
       .split-intro { padding: 140px 80px 60px; }
       .split-card { padding: 40px 0; border-radius: 48px; }
       .split-video { height: 480px; border-radius: 0; }
-      .split-informer { left: 24px; right: 24px; top: 39%; }
+      .split-informer { left: 0; right: 0; top: 39%; padding: 0 40px; }
       .split-informer img { border-radius: 0; }
       .split-dark-section { border-radius: 48px; }
     }
@@ -313,7 +322,7 @@
         border-radius: 32px;
       }
       .split-video { height: 360px; border-radius: 0; }
-      .split-informer { left: 12px; right: 12px; top: 39%; }
+      .split-informer { left: 0; right: 0; top: 39%; padding: 0 24px; }
       .split-informer img { border-radius: 0; }
 
       /* ── Dark section ── */
