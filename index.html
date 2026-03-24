@@ -17,7 +17,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500&family=Inter:wght@500&display=swap" rel="stylesheet">
   <style>
     @font-face {
       font-family: 'GT America Condensed';
@@ -49,7 +49,7 @@
       --border:       rgba(236, 234, 228, 0.08);
       --pad:          max(60px, calc((100vw - 1800px) / 2));
 
-      --font-display: 'GT America Condensed', 'Helvetica Neue', Arial, sans-serif;
+      --font-display: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif;
 
       --font-body:    'Inter', 'Helvetica Neue', Arial, sans-serif;
       --ease-out:     cubic-bezier(0.16, 1, 0.3, 1);
@@ -124,7 +124,7 @@
        HERO
     ============================================================ */
     .hero {
-      padding: min(320px, 35svh) var(--pad) 72px;
+      padding: min(240px, 28svh) var(--pad) 72px;
       display: flex; flex-direction: column;
       position: relative;
     }
@@ -138,10 +138,10 @@
 
     .hero-hl {
       font-family: var(--font-display);
-      font-weight: 700; font-style: italic;
+      font-weight: 500; font-style: normal;
       font-size: clamp(64px, 9.16vw, 132px);
-      line-height: .924;
-      letter-spacing: -.035em;
+      line-height: .9;
+      letter-spacing: -.03em;
       text-transform: uppercase;
       color: var(--fg);
     }
@@ -156,8 +156,8 @@
 
     .hero-desc {
       margin-top: 48px;
-      font-size: 16px; font-weight: 500; line-height: 1.65;
-      color: rgba(255,255,255,.55);
+      font-size: 20px; font-weight: 500; line-height: 1.65;
+      color: var(--fg);
       max-width: 644px;
     }
 
@@ -176,7 +176,7 @@
     ============================================================ */
     .proj-row {
       display: grid;
-      grid-template-columns: 40px 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       align-items: start;
       gap: 32px;
       padding: 48px var(--pad);
@@ -185,19 +185,12 @@
     }
     .proj-row:hover { opacity: .88; }
 
-    .proj-num {
-      font-size: 16px; font-weight: 500;
-      text-transform: uppercase; letter-spacing: .04em;
-      color: var(--fg-dim);
-      padding-top: .35em;
-    }
-
     .proj-name {
       font-family: var(--font-display);
-      font-weight: 700; font-style: italic;
+      font-weight: 500; font-style: normal;
       font-size: clamp(64px, 9.16vw, 132px);
-      line-height: .924;
-      letter-spacing: -.035em;
+      line-height: .9;
+      letter-spacing: -.03em;
       text-transform: uppercase;
       min-width: 0;
     }
@@ -205,7 +198,7 @@
     .proj-desc {
       font-size: 16px; font-weight: 500; line-height: 1.65;
       color: rgba(255,255,255,.65);
-      max-width: 530px;
+      width: 80%;
       padding: 16px 0 8px;
       align-self: start;
     }
@@ -213,7 +206,7 @@
     /* Default + per-project colors */
     .proj-name          { color: var(--fg); }
     .proj-name.c-fbs    { color: #31B95F; }
-    .proj-name.c-market { color: #000000; }
+    .proj-name.c-market { color: #FFDB00; }
     .proj-name.c-split  { color: #D1E9D5; }
 
     /* ============================================================
@@ -227,41 +220,6 @@
     .screens-wrap img { width: 100%; }
 
     /* ============================================================
-       MARKET SECTION — yellow
-    ============================================================ */
-    .market-wrap {
-      margin: 0 0 48px;
-      border-radius: 80px;
-      overflow: hidden;
-    }
-    .market-inner {
-      background: #FED42B;
-      padding: 0 var(--pad);
-    }
-    .market-inner .proj-row {
-      padding-left: 0; padding-right: 0;
-      color: #000;
-    }
-    .market-inner .proj-num   { color: rgba(0,0,0,.35); }
-    .market-inner .proj-desc  { color: rgba(0,0,0,.65); }
-
-    .market-img {
-      background: #FED42B;
-      position: relative;
-      overflow: hidden;
-      /* Phones area: Figma block 1279px - text area 356px = 923px = 64.1vw */
-      height: 66.7vw;
-      max-height: 960px;
-    }
-    .market-img img {
-      width: 100%;
-      position: absolute;
-      /* Skip text area: 356px / 1440px = 24.7vw — responsive offset */
-      top: -24.7vw;
-      left: 0;
-    }
-
-    /* ============================================================
        ABOUT
     ============================================================ */
     .about {
@@ -273,10 +231,10 @@
     }
     .about-hl {
       font-family: var(--font-display);
-      font-weight: 700; font-style: italic;
+      font-weight: 500; font-style: normal;
       font-size: clamp(56px, 9.72vw, 140px);
-      line-height: .924;
-      letter-spacing: -.035em;
+      line-height: .9;
+      letter-spacing: -.03em;
       text-transform: uppercase;
       color: var(--fg);
     }
@@ -300,9 +258,6 @@
     .proj-cta {
       display: flex; justify-content: center;
       padding: 48px var(--pad) 100px;
-    }
-    .proj-cta-near {
-      padding-top: 16px;
     }
 
     /* ============================================================
@@ -362,7 +317,6 @@
         font-size: clamp(64px, 10vw, 110px);
       }
 
-      .market-wrap { border-radius: 64px; }
       .screens-wrap { border-radius: 16px; }
     }
 
@@ -385,7 +339,7 @@
       .h-nav-pill { gap: 18px; }
 
       /* ── Hero ── */
-      .hero { padding: min(160px, 25svh) 16px 48px; }
+      .hero { padding: min(120px, 22svh) 16px 48px; }
       .hero-eyebrow { font-size: 13px; margin-bottom: 12px; }
       .hero-hl { font-size: 56px; }
       .hero-desc { margin-top: 28px; font-size: 15px; }
@@ -400,7 +354,6 @@
         gap: 12px;
         padding: 32px 16px;
       }
-      .proj-num { padding-top: 0; }
       .proj-name {
         font-size: 56px;
         width: auto;
@@ -408,6 +361,7 @@
       }
       .proj-desc {
         max-width: 100%;
+        width: 100%;
         font-size: 15px;
         color: rgba(255,255,255,.55);
       }
@@ -417,23 +371,12 @@
 
       /* ── CTA button ── */
       .proj-cta { padding: 32px 16px 56px; }
-      .proj-cta-near { padding-top: 32px; padding-bottom: 32px; }
       .btn-explore,
       .about-btn {
         padding: 20px 32px;
         width: 100%;
         text-align: center;
       }
-
-      /* ── Market section ── */
-      .market-wrap { border-radius: 40px; margin-bottom: 0; }
-      .market-inner { padding: 0 16px; }
-      .market-inner .proj-row { padding-left: 0; padding-right: 0; }
-      .market-img {
-        height: 78vw;
-        max-height: 292px;
-      }
-      .market-img img { top: -24.7vw; }
 
       /* ── About ── */
       .about {
@@ -481,25 +424,24 @@
 
 <!-- ── HERO ────────────────────────────────────────────────── -->
 <section class="hero">
-  <p class="hero-eyebrow reveal">Product Design · Design Systems · Team Leadership</p>
+  <p class="hero-eyebrow reveal">Based in Belgrade  ·  Open to new projects</p>
 
-  <div class="hero-hl" aria-label="Designing products for 10+ years">
+  <div class="hero-hl" aria-label="Designing products for 10+ years at Yandex, Zvuk, Data Driven Lab">
     <span class="ln"><span>Designing products</span></span>
     <span class="ln"><span>for 10+ years</span></span>
     <span class="ln"><span>at <span id="typewriter"></span><span class="tcursor">|</span></span></span>
   </div>
 
   <p class="hero-desc reveal">
-    Hi, I'm Anton Pepelyaev. I lead complex multi-user products, build scalable systems, and craft detailed digital experiences.
+    Hi, I'm Anton Pepelyaev. I design products used by 50M+ users across 8+ languages — from streaming to fintech, from B2B systems to marketplaces, all in.
   </p>
 </section>
 
 <!-- ── WORKS ───────────────────────────────────────────────── -->
-<p class="works-header reveal" id="works">Selected Works</p>
+<p class="works-header reveal" id="works">Selected Works (3)</p>
 
 <!-- 01 — FBS ------------------------------------------------- -->
 <div class="proj-row reveal">
-  <span class="proj-num">01</span>
   <span class="proj-name c-fbs">fbs</span>
   <p class="proj-desc">
     Created a brand new web experience for FBS, an international
@@ -519,28 +461,23 @@
 </div>
 
 <!-- 02 — YANDEX MARKET --------------------------------------- -->
-<div class="market-wrap reveal">
-  <div class="market-inner">
-    <div class="proj-row">
-      <span class="proj-num">02</span>
-      <span class="proj-name c-market">yandex market</span>
-      <p class="proj-desc">
-        Created a cross-service Plus gamified tasks system across Yandex Market, Lavka, Go, Food, and other services — a new loyalty growth mechanic that became a notable product across the entire Yandex ecosystem.
-      </p>
-    </div>
-  </div>
-  <div class="market-img">
-    <img src="images/market-section.png" alt="Yandex Market — screens">
-  </div>
+<div class="proj-row reveal">
+  <span class="proj-name c-market">yandex market</span>
+  <p class="proj-desc">
+    Created a cross-service Plus gamified tasks system across Yandex Market, Lavka, Go, Food, and other services — a new loyalty growth mechanic that became a notable product across the entire Yandex ecosystem.
+  </p>
 </div>
 
-<div class="proj-cta proj-cta-near reveal">
+<div class="screens-wrap reveal">
+  <img src="images/market-screens.png" alt="Yandex Market — screens">
+</div>
+
+<div class="proj-cta reveal">
   <a href="/market" class="btn-explore">Explore Project</a>
 </div>
 
 <!-- 03 — YANDEX SPLIT ---------------------------------------- -->
 <div class="proj-row reveal">
-  <span class="proj-num">03</span>
   <span class="proj-name c-split">yandex split</span>
   <p class="proj-desc">
     Contributed to one of the first integrations of Yandex Split — a buy-now-pay-later service — into Yandex Market's shopping experience, from product cards to checkout and user account.
@@ -557,7 +494,7 @@
 
 <!-- ── ABOUT ───────────────────────────────────────────────── -->
 <section class="about reveal" id="about">
-  <p class="about-hl">Open to new<br>projects</p>
+  <p class="about-hl">Got something<br>in mind. Let's build it</p>
   <a href="mailto:pepelyaevanton@gmail.com" class="about-btn">Email me</a>
 </section>
 
@@ -576,8 +513,8 @@
      TYPEWRITER
      Words the cursor cycles through in the hero
   ============================================================ */
-  const WORDS  = ['fintech', 'e-commerce', 'streaming'];
-  const COLORS = ['#31B95F', '#D9A838',    '#7ECDA8'];
+  const WORDS  = ['yandex', 'zvuk', 'data driven lab'];
+  const COLORS = ['#E94C1C', '#00D469', '#AEAAB3'];
   const typeEl = document.getElementById('typewriter');
   let wIdx = 0, cIdx = 0, deleting = false;
 
