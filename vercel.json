@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/fbs", "destination": "/fbs.html" },
-    { "source": "/market", "destination": "/market.html" }
+    { "source": "/market", "destination": "/market.html" },
+    { "source": "/split", "destination": "/split.html" }
   ]
 }
