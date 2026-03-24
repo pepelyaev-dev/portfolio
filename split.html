@@ -47,7 +47,7 @@
       --border:       rgba(236, 234, 228, 0.08);
       --pad:          60px;
       --pad-inner:    173px;
-      --split-card:   #AFCDB2;
+      --split-card:   #AED5B8;
 
       --font-display: 'GT America Condensed', 'Helvetica Neue', Arial, sans-serif;
       --font-body:    'Inter', 'Helvetica Neue', Arial, sans-serif;
@@ -157,24 +157,29 @@
     .split-card {
       background: var(--split-card);
       border-radius: 64px;
-      padding: 48px 113px;
+      padding: 48px 0;
       overflow: hidden;
+      position: relative;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 32px;
+      justify-content: center;
     }
 
     .split-video {
       height: 700px;
       width: auto;
       aspect-ratio: 345 / 718;
-      border-radius: 12px;
+      border-radius: 53px;
       display: block;
+      position: relative;
+      z-index: 2;
     }
 
     .split-informer {
-      width: 100%;
+      position: absolute;
+      top: 39%;
+      left: 40px;
+      right: 40px;
+      z-index: 1;
     }
     .split-informer img {
       width: 100%;
@@ -271,7 +276,8 @@
       }
 
       .split-intro { padding: 140px 80px 60px; }
-      .split-card { padding: 48px 64px 48px; border-radius: 48px; }
+      .split-card { padding: 48px 0; border-radius: 48px; }
+      .split-informer { left: 24px; right: 24px; }
       .split-dark-section { border-radius: 48px; }
     }
 
@@ -379,6 +385,7 @@
     </div>
   </div>
 </div>
+
 
 <!-- ── DARK SECTION ────────────────────────────────────────── -->
 <div class="split-dark-section reveal">
