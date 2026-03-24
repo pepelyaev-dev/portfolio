@@ -160,7 +160,9 @@
       padding: 48px 113px;
       overflow: hidden;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
     }
 
     .split-video {
@@ -168,8 +170,16 @@
       width: auto;
       aspect-ratio: 345 / 718;
       border-radius: 12px;
-      box-shadow: 0 32px 80px rgba(0,0,0,.18);
       display: block;
+    }
+
+    .split-informer {
+      width: 100%;
+    }
+    .split-informer img {
+      width: 100%;
+      display: block;
+      border-radius: 24px;
     }
 
     /* ============================================================
@@ -364,6 +374,9 @@
   <div class="split-card">
     <video class="split-video" src="images/split/split.mp4"
       autoplay loop muted playsinline></video>
+    <div class="split-informer">
+      <img src="images/split/informer.png" alt="Баланс сплита">
+    </div>
   </div>
 </div>
 
