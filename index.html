@@ -513,7 +513,8 @@
      TYPEWRITER
      Words the cursor cycles through in the hero
   ============================================================ */
-  const WORDS  = ['yandex', 'zvuk', 'data driven lab'];
+  const isMobile = () => window.innerWidth < 768;
+  const WORDS  = ['yandex', 'zvuk', isMobile() ? 'ddl' : 'data driven lab'];
   const COLORS = ['#E94C1C', '#00D469', '#AEAAB3'];
   const typeEl = document.getElementById('typewriter');
   let wIdx = 0, cIdx = 0, deleting = false;
