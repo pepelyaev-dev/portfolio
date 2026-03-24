@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yandex Market — Anton Pepelyaev</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <meta property="og:title" content="Yandex Market — Anton Pepelyaev — Lead Product Designer">
+  <meta property="og:description" content="Led design for loyalty and fintech experiences at one of Russia's largest e-commerce platforms.">
+  <meta property="og:image" content="https://antonpepelyaev.com/og-image.png">
+  <meta property="og:url" content="https://antonpepelyaev.com/market.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'GT America Condensed';
+      src: url('GT-America-Condensed-Bold-Italic.woff2') format('woff2');
+      font-weight: 700;
+      font-style: italic;
+      font-display: swap;
+    }
+  </style>
+
+  <style>
+    /* ============================================================
+       RESET
+    ============================================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; }
+
+    /* ============================================================
+       TOKENS
+    ============================================================ */
+    :root {
+      --bg:           #0A0A0A;
+      --fg:           #FFFFFF;
+      --fg-warm:      #ECEAE4;
+      --fg-dim:       #DAD7CC;
+      --border:       rgba(236, 234, 228, 0.08);
+      --pad:          60px;
+      --pad-inner:    173px;
+      --market-yellow: #FED42B;
+
+      --font-display: 'GT America Condensed', 'Helvetica Neue', Arial, sans-serif;
+      --font-body:    'Inter', 'Helvetica Neue', Arial, sans-serif;
+      --ease-out:     cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ============================================================
+       BASE
+    ============================================================ */
+    html {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      cursor: none;
+      overflow-x: hidden;
+    }
+
+    /* ============================================================
+       CUSTOM CURSOR
+    ============================================================ */
+    #cursor {
+      position: fixed; width: 10px; height: 10px;
+      border-radius: 50%; background: var(--fg-warm);
+      pointer-events: none; z-index: 9998;
+      transform: translate(-50%,-50%);
+      transition: width .25s var(--ease-out), height .25s var(--ease-out);
+      mix-blend-mode: difference;
+      will-change: left, top;
+    }
+    #cursor.hover { width: 42px; height: 42px; }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    header {
+      position: fixed; top: 0; left: 0; right: 0;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding: 20px 32px;
+      z-index: 200;
+      pointer-events: none;
+    }
+
+    .h-left { display: flex; gap: 10px; pointer-events: all; }
+
+    .h-pill {
+      pointer-events: all;
+      display: inline-flex; align-items: center;
+      background: rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(236, 234, 228, 0.08);
+      border-radius: 70px;
+      padding: 18px 28px;
+      font-size: 16px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: .04em;
+      color: var(--fg-warm);
+      transition: background .3s;
+    }
+    .h-pill:hover { background: rgba(0, 0, 0, 0.22); }
+
+    .h-back {
+      padding: 0;
+      width: 62px; height: 62px;
+      justify-content: center;
+    }
+
+    .h-nav-pill { gap: 32px; }
+    .h-nav-pill a { color: var(--fg-warm); transition: opacity .2s; }
+    .h-nav-pill a:hover { opacity: .55; }
+
+    /* ============================================================
+       SCROLL REVEAL
+    ============================================================ */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .75s var(--ease-out), transform .75s var(--ease-out);
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* ============================================================
+       INTRO
+    ============================================================ */
+    .market-intro {
+      padding: 182px var(--pad-inner) 100px;
+    }
+
+    .market-desc {
+      font-size: clamp(18px, 1.67vw, 24px);
+      font-weight: 500;
+      line-height: 1.65;
+      color: var(--fg);
+      max-width: 1094px;
+    }
+    .market-desc p + p { margin-top: 1.4em; }
+
+    /* ============================================================
+       YELLOW SHOWCASE
+    ============================================================ */
+    .market-showcase {
+      padding: 0 var(--pad);
+    }
+
+    .market-yellow-card {
+      background: var(--market-yellow);
+      border-radius: 64px;
+      overflow: hidden;
+    }
+
+    .market-yellow-card img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ============================================================
+       GALLERY ROW 1
+    ============================================================ */
+    .market-gallery-1 {
+      padding: 100px var(--pad-inner) 0;
+    }
+    .market-gallery-1 img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    /* ============================================================
+       DARK SECTION
+    ============================================================ */
+    .market-dark-section {
+      margin: 72px 0 72px;
+      border-radius: 80px;
+      overflow: hidden;
+    }
+    .market-dark-section img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ============================================================
+       GALLERY ROW 2
+    ============================================================ */
+    .market-gallery-2 {
+      padding: 0 var(--pad-inner) 120px;
+    }
+    .market-gallery-2 img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    /* ============================================================
+       CTA
+    ============================================================ */
+    .market-cta {
+      padding: 80px var(--pad);
+      border-top: 1px solid var(--border);
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center;
+      gap: 48px;
+    }
+
+    .market-cta-hl {
+      font-family: var(--font-display);
+      font-weight: 700; font-style: italic;
+      font-size: clamp(56px, 9.16vw, 132px);
+      line-height: .924;
+      letter-spacing: -.035em;
+      text-transform: uppercase;
+      color: var(--fg);
+    }
+
+    .btn-dark {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 24px 132px;
+      background: var(--bg);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 1000px;
+      font-size: 16px; font-weight: 600;
+      text-transform: uppercase;
+      color: var(--fg-warm);
+      transition: border-color .25s;
+      cursor: none;
+    }
+    .btn-dark:hover { border-color: rgba(255,255,255,0.5); }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      padding: 26px var(--pad);
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      border-top: 1px solid var(--border);
+    }
+    .f-email {
+      font-size: 16px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: .04em;
+      color: var(--fg-warm);
+      transition: opacity .2s;
+    }
+    .f-email:hover { opacity: .55; }
+    .f-copy {
+      font-size: 16px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: .04em;
+      color: rgba(236,234,228,.20);
+      text-align: center;
+    }
+    .f-social { display: flex; gap: 32px; justify-content: flex-end; }
+    .f-social a {
+      font-size: 16px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: .04em;
+      color: var(--fg-warm);
+      transition: opacity .2s;
+    }
+    .f-social a:hover { opacity: .55; }
+
+    /* ============================================================
+       TABLET  768px – 1199px
+    ============================================================ */
+    @media (min-width: 768px) and (max-width: 1199px) {
+      :root {
+        --pad: 24px;
+        --pad-inner: 80px;
+      }
+
+      .market-intro { padding: 140px 80px 60px; }
+      .market-yellow-card { border-radius: 48px; }
+      .market-dark-section { border-radius: 48px; }
+      .market-gallery-1 { padding: 48px 80px 0; }
+      .market-gallery-2 { padding: 0 80px 60px; }
+    }
+
+    /* ============================================================
+       MOBILE  < 768px
+    ============================================================ */
+    @media (max-width: 767px) {
+      :root {
+        --pad: 16px;
+        --pad-inner: 16px;
+      }
+
+      html { cursor: auto; }
+      #cursor { display: none; }
+
+      /* ── Header ── */
+      header { padding: 14px 16px; }
+      .h-pill { padding: 12px 18px; font-size: 13px; }
+      .h-back { width: 48px; height: 48px; padding: 0; }
+      .h-nav-pill { gap: 18px; }
+      .h-nav-pill a[href*="works"] { display: none; }
+
+      /* ── Intro ── */
+      .market-intro { padding: 100px 16px 48px; }
+      .market-desc { font-size: 16px; }
+
+      /* ── Showcase ── */
+      .market-showcase { padding: 0 16px; }
+      .market-yellow-card { border-radius: 32px; }
+
+      /* ── Gallery ── */
+      .market-gallery-1 { padding: 32px 16px 0; }
+      .market-gallery-2 { padding: 0 16px 48px; }
+
+      /* ── Dark section ── */
+      .market-dark-section { border-radius: 32px; margin: 40px 0; }
+
+      /* ── CTA ── */
+      .market-cta { padding: 60px 16px; gap: 32px; }
+      .market-cta-hl { font-size: 56px; }
+      .btn-dark {
+        padding: 20px 32px;
+        width: 100%;
+        text-align: center;
+      }
+
+      /* ── Footer ── */
+      footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 32px 16px;
+        text-align: center;
+      }
+      .f-social { justify-content: center; gap: 24px; }
+      .f-email  { order: 1; }
+      .f-social { order: 2; }
+      .f-copy   { order: 3; }
+    }
+
+    /* ============================================================
+       SMALL MOBILE  < 400px  — no text wrapping in nav pills
+    ============================================================ */
+    @media (max-width: 399px) {
+      .h-pill { padding: 10px 12px; font-size: 11px; white-space: nowrap; }
+      .h-back { width: 40px; height: 40px; }
+      .h-nav-pill { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── CURSOR ──────────────────────────────────────────────── -->
+<div id="cursor"></div>
+
+<!-- ── HEADER ──────────────────────────────────────────────── -->
+<header>
+  <div class="h-left">
+    <a href="index.html" class="h-pill h-back" title="Back">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 4L7 13L16 22" stroke="white" stroke-width="2"/></svg>
+    </a>
+    <a href="index.html" class="h-pill">Anton Pepelyaev</a>
+  </div>
+  <nav class="h-pill h-nav-pill">
+    <a href="index.html#works">Works (3)</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- ── INTRO ───────────────────────────────────────────────── -->
+<section class="market-intro reveal">
+  <div class="market-desc">
+    <p>Led design for loyalty and fintech experiences at one of Russia's largest e-commerce platforms.</p>
+    <p>My main challenge was making complex reward mechanics feel simple and rewarding — designing gamified tasks that work across multiple Yandex services, building communication systems that don't annoy users, and integrating buy-now-pay-later options seamlessly into the shopping flow.</p>
+  </div>
+</section>
+
+<!-- ── YELLOW SHOWCASE ─────────────────────────────────────── -->
+<div class="market-showcase reveal">
+  <div class="market-yellow-card">
+    <img src="images/market/yellow-card.png" alt="Yandex Market — app screens">
+  </div>
+</div>
+
+<!-- ── GALLERY ROW 1 ───────────────────────────────────────── -->
+<div class="market-gallery-1 reveal">
+  <img src="images/market/gallery-1.png" alt="Yandex Market — screens">
+</div>
+
+<!-- ── DARK SECTION ────────────────────────────────────────── -->
+<div class="market-dark-section reveal">
+  <img src="images/market/dark-section.png" alt="Yandex Market — design system">
+</div>
+
+<!-- ── GALLERY ROW 2 ───────────────────────────────────────── -->
+<div class="market-gallery-2 reveal">
+  <img src="images/market/gallery-2.png" alt="Yandex Market — more screens">
+</div>
+
+<!-- ── CTA ─────────────────────────────────────────────────── -->
+<section class="market-cta reveal" id="contact">
+  <p class="market-cta-hl">Open to new<br>projects</p>
+  <a href="mailto:pepelyaevanton@gmail.com" class="btn-dark">Email me</a>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────────── -->
+<footer>
+  <a href="mailto:pepelyaevanton@gmail.com" class="f-email">pepelyaevanton@gmail.com</a>
+  <span class="f-copy">© 2026 Anton Pepelyaev</span>
+  <div class="f-social">
+    <a href="https://drive.google.com/file/d/1T1x9WH6kJ1wxZvD_Bv0zaqoJlx19xz1z/view?usp=sharing" target="_blank" rel="noopener">Download CV</a>
+    <a href="https://www.linkedin.com/in/anton-pepelyaev/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  /* ── CURSOR ──────────────────────────────────────────────── */
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top  = e.clientY + 'px';
+  });
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+  });
+
+  /* ── SCROLL REVEAL ───────────────────────────────────────── */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.04, rootMargin: '0px 0px -28px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  /* Trigger first element immediately */
+  document.querySelector('.market-intro').classList.add('in');
+
+</script>
+</body>
+</html>
