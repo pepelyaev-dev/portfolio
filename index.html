@@ -175,10 +175,10 @@
 
     .hero-photo {
       position: absolute;
-      left: 50%;
+      right: var(--pad);
       bottom: 72px;
       transform: translateY(16px);
-      width: 480px;
+      width: calc((100vw - 2 * var(--pad)) / 3);
       border-radius: 0;
       pointer-events: none;
       opacity: 0;
