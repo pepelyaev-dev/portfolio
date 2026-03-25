@@ -161,6 +161,39 @@
       max-width: 644px;
     }
 
+    .name-hover {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+      cursor: none;
+      transition: color .2s;
+    }
+    .name-hover:hover {
+      text-decoration: none;
+      color: rgba(255,255,255,.45);
+    }
+
+    .hero-photo {
+      position: absolute;
+      left: 50%;
+      bottom: 72px;
+      transform: translateY(16px);
+      width: 480px;
+      border-radius: 0;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 0;
+      transition: opacity .35s var(--ease-out), transform .35s var(--ease-out);
+    }
+    .hero-photo.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-eyebrow,
+    .hero-hl,
+    .hero-desc { position: relative; z-index: 1; }
+
     /* ============================================================
        WORKS HEADER
     ============================================================ */
@@ -168,7 +201,7 @@
       padding: 64px var(--pad) 0;
       font-size: 16px; font-weight: 500;
       text-transform: uppercase; letter-spacing: .04em;
-      color: var(--fg-dim);
+      color: var(--fg);
     }
 
     /* ============================================================
@@ -303,6 +336,14 @@
     /* ============================================================
        TABLET  768px – 1199px
     ============================================================ */
+    @media (max-width: 1199px) {
+      .hero-photo { display: none; }
+      .name-hover { text-decoration: none; color: inherit; cursor: auto; }
+      .name-hover:hover { color: inherit; }
+      .proj-row { padding-bottom: 36px; }
+      .proj-desc { padding-top: 8px; }
+    }
+
     @media (min-width: 768px) and (max-width: 1199px) {
       :root { --pad: 24px; }
 
@@ -352,7 +393,7 @@
         display: flex;
         flex-direction: column;
         gap: 12px;
-        padding: 32px 16px;
+        padding: 32px 16px 20px;
       }
       .proj-name {
         font-size: 56px;
@@ -433,8 +474,9 @@
   </div>
 
   <p class="hero-desc reveal">
-    Hi, I'm Anton Pepelyaev. I design products used by 50M+ users across 8+ languages — from streaming to fintech, from B2B systems to marketplaces, all in.
+    Hi, I'm <span class="name-hover">Anton Pepelyaev</span>. I design products used by 50M+ users across 8+ languages — from streaming to fintech, from B2B systems to marketplaces, all in.
   </p>
+  <img class="hero-photo" src="images/anton-photo.png" alt="Anton Pepelyaev">
 </section>
 
 <!-- ── WORKS ───────────────────────────────────────────────── -->
@@ -562,6 +604,12 @@
     el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
   });
 
+  /* ── NAME HOVER PHOTO ───────────────────────────────────── */
+  const nameEl  = document.querySelector('.name-hover');
+  const photoEl = document.querySelector('.hero-photo');
+  nameEl.addEventListener('mouseenter', () => { photoEl.classList.add('visible'); cursor.classList.add('hover'); });
+  nameEl.addEventListener('mouseleave', () => { photoEl.classList.remove('visible'); cursor.classList.remove('hover'); });
+
 
   /* ============================================================
      SCROLL REVEAL
@@ -573,6 +621,7 @@
   }, { threshold: 0.06, rootMargin: '0px 0px -28px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
 
 </script>
 </body>
